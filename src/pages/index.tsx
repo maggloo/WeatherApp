@@ -6,8 +6,8 @@ import {store} from '@/app/store/store';
 
 export default function App() {
 	return (
-		// <Provider store={store}>
-		// 	{/*<MainPage />*/}
-		// </Provider>
+		<Provider store={store}>
+			<></>
+		</Provider>
 	);
 }
