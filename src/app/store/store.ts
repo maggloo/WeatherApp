@@ -20,4 +20,4 @@ export type AppDispatch = ThunkDispatch<AppRootStateType, any, AnyAction>
 
 export const useAppDispatch = () => useDispatch<AppDispatch>();
 
-// export const useAppSelector: TypedUseSelectorHook<AppRootStateType> = useSelector;
+export const useAppSelector: TypedUseSelectorHook<AppRootStateType> = useSelector;
