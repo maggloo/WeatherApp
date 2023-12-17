@@ -2,7 +2,7 @@ import {AnyAction, combineReducers} from 'redux';
 import {thunk, ThunkDispatch} from 'redux-thunk';
 import {configureStore} from '@reduxjs/toolkit';
 import {TypedUseSelectorHook, useDispatch, useSelector} from 'react-redux';
-import {weatherReducer} from '@/entities/ToolBox/ui/MainInfo/model';
+import {weatherReducer} from '@/entities/ToolBox/ui/SummaryWeatherInfo/model';
 
 const rootReducer = combineReducers({
 	weather: weatherReducer,

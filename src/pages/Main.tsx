@@ -1,7 +1,9 @@
 import React, {useEffect} from 'react';
 import {useAppDispatch, useAppSelector} from '@/app/store/store';
-import {getSummaryWeather} from '@/entities/ToolBox/ui/MainInfo/model';
+import {getSummaryWeather} from '@/entities/ToolBox/ui/SummaryWeatherInfo/model';
 import {mainSelector, weatherSelector} from '@/shared/selectors/weatherSelectors';
+import ToolBox from '@/shared/ui/ToolBox/ToolBox';
+import CurrentTemperatureInfo from '@/entities/ToolBox/ui/SummaryWeatherInfo/ui/CurrentTemperatureInfo';
 
 const Main = () => {
 
@@ -12,13 +14,13 @@ const Main = () => {
 	useEffect(() => {
 		dispatch(getSummaryWeather('Minsk'));
 	}, []);
-	const tempCalculation = (temp: number) => Math.round(temp);
+
 
 	return (
-		<div>
-			{weather[0] && weather[0].main}
-			<h1 className={'text-3xl font-bold underline'} > {tempCalculation(main.temp)} </h1>
-		</div>
+		<ToolBox>
+			<div>{weather[0] && weather[0].main}</div>
+			<CurrentTemperatureInfo temperature={main.temp}/>
+		</ToolBox>
 	);
 };
 
