@@ -1,10 +1,12 @@
 import {createAsyncThunk, createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {weatherAPI} from '@/shared/api/weatherAPI';
 import {ForecastSummaryResponseType, MainType, WeatherType} from '@/shared/types';
+import dayjs from 'dayjs';
 
 const initialState = {
 	weather: [] as WeatherType[],
 	currentDate: '',
+	currentDay: '',
 	currentTime: '',
 	currentCity: '',
 	main: {} as MainType,
@@ -23,6 +25,9 @@ export const weatherSlice = createSlice({
 		setCurrentWeather: (state, action: PayloadAction<{weather: ForecastSummaryResponseType}>) => {
 			state.weather = action.payload.weather.weather;
 			state.main = action.payload.weather.main;
+			state.currentDate = dayjs.unix(action.payload.weather.dt).format('DD.MM.YYYY');
+			state.currentTime = dayjs.unix(action.payload.weather.dt).format('HH:mm');
+			state.currentDay = dayjs.unix(action.payload.weather.dt).format('dddd');
 		},
 	},
 });
