@@ -13,15 +13,13 @@ export type ForecastSummaryResponseType = {
     wind: WindType
     weather: WeatherType[]
 }
-export type ForecastHourlyResponseType = {
+export type ForecastTenDayResponseType = {
     city: {
         coord: CoordType
         country: string
         id: number
         name: string
         population: number
-        sunrise: number
-        sunset: number
         timezone: number
     }
     cnt: number
@@ -32,21 +30,33 @@ export type ForecastHourlyResponseType = {
 
 
 export type ListType = {
-    clouds: CloudsType
     dt: number //timestamp
-    dt_txt: string
-    main: MainType
-    pop: number
-    show: {
-        '3h': number
-    }
-    sys: {
-        pod: string
-    }
-    visibility: number
+    sunrise: number
+    sunset: number
+    temp: TempType
+    feels_like: FeelsLikeType
+    pressure: number
+    humidity: number
     weather: WeatherType[]
-    wind: WindType
+    deg: number
+    gust: number
+    speed: number
+    clouds: number
+    pop: number
+    rain: number
 }
+
+export type TempType = {
+    day: number
+    min: number
+    max: number
+    night: number
+    eve: number
+    morn: number
+}
+
+export type FeelsLikeType = Omit<TempType, 'min' | 'max'>
+
 export type CoordType = {
     lat: number
     lon: number
