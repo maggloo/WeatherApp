@@ -1,20 +1,16 @@
-import React, {useEffect} from 'react';
-import {useAppDispatch, useAppSelector} from '@/app/store/store';
-import {getTenDayWeather} from '@/entities/ToolBox/ui/SummaryWeatherInfo/model';
+import React from 'react';
+import {useAppSelector} from '@/app/store/store';
 import {tenDayWeatherSelector} from '@/shared/selectors/weatherSelectors';
+import TenDaysForecastInfo from '@/entities/ToolBox/ui/SummaryWeatherInfo/ui/TenDaysForecastInfo';
+import ToolBox from '@/shared/ui/ToolBox/ToolBox';
 
 const TenDayForecast = () => {
-	const dispatch = useAppDispatch();
 	const forecast = useAppSelector(tenDayWeatherSelector);
 
-	useEffect(() => {
-		dispatch(getTenDayWeather('Minsk'));
-	}, []);
-	console.log(forecast);
 	return (
-		<div>
-
-		</div>
+		<ToolBox>
+			<TenDaysForecastInfo forecastArray={forecast}/>
+		</ToolBox>
 	);
 };
 
