@@ -1,49 +1,68 @@
 export type ForecastSummaryResponseType = {
-    base: string
-    clouds: CloudsType
-    cod: number
-    coord: CoordType
-    dt: number //timestamp
-    id: number
-    main: MainType
-    name: string
-    sys: SysType
-    timezone: number
-    visibility: number
-    wind: WindType
-    weather: WeatherType[]
+    lat: string
+    lon: string
+    timezone: string
+    timezone_offset: number
+    current: CurrentWeatherType
+    hourly: HourlyWeatherType[]
+    daily: DailyWeatherType[]
 }
-export type ForecastTenDayResponseType = {
-    city: {
-        coord: CoordType
-        country: string
-        id: number
-        name: string
-        population: number
-        timezone: number
-    }
-    cnt: number
-    cod: string
-    list: ListType[]
-    message: any
-}
-
-
-export type ListType = {
-    dt: number //timestamp
+export type CurrentWeatherType = {
+    dt: number
     sunrise: number
     sunset: number
+    temp: number
+    feels_like: number
+    pressure: number
+    humidity: number
+    dew_point: number
+    uvi: number
+    clouds: number
+    visibility: number
+    wind_speed: number
+    wind_deg: number
+    wind_gust: number
+    weather: WeatherType[]
+}
+
+export type HourlyWeatherType = {
+    dt: number
+    temp: number
+    feels_like: number
+    pressure: number
+    humidity: number
+    dew_point: number
+    uvi: number
+    clouds: number
+    visibility: number
+    wind_speed: number
+    wind_deg: number
+    wind_gust: number
+    weather: WeatherType[]
+    pop: number
+}
+
+export type DailyWeatherType = {
+    dt: number
+    sunrise: number
+    sunset: number
+    moonrise: number
+    moonset: number
+    moon_phase: number
+    summary: string
     temp: TempType
     feels_like: FeelsLikeType
     pressure: number
     humidity: number
+    dew_point: number
+    wind_speed: number
+    wind_deg: number
+    wind_gust: number
     weather: WeatherType[]
-    deg: number
-    gust: number
-    speed: number
     clouds: number
     pop: number
     rain: number
+    uvi: number
 }
 
 export type TempType = {
@@ -57,13 +76,6 @@ export type TempType = {
 
 export type FeelsLikeType = Omit<TempType, 'min' | 'max'>
 
-export type CoordType = {
-    lat: number
-    lon: number
-}
-export type CloudsType = {
-    all: number
-}
 export type MainType = {
     feels_like: number
     grnd_level: number
@@ -74,18 +86,7 @@ export type MainType = {
     temp_max: number
     temp_min: number
 }
-export type SysType = {
-    country: string
-    id: number
-    sunrise: number //timestamp
-    sunset: number //timestamp
-    type: number
-}
-export type WindType = {
-    deg: number
-    gust: number
-    speed: number
-}
+
 export type WeatherType = {
     description: string
     icon: string

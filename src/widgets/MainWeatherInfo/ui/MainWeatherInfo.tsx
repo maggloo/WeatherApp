@@ -7,7 +7,7 @@ import {useAppDispatch, useAppSelector} from '@/app/store/store';
 import {
 	dateSelector,
 	daySelector,
-	mainSelector,
+	tempSelector,
 	timeSelector,
 	weatherSelector
 } from '@/shared/selectors/weatherSelectors';
@@ -17,7 +17,7 @@ const MainWeatherInfo = () => {
 
 	const dispatch = useAppDispatch();
 	const weather = useAppSelector(weatherSelector);
-	const main = useAppSelector(mainSelector);
+	const temp = useAppSelector(tempSelector);
 	const day = useAppSelector(daySelector);
 	const time = useAppSelector(timeSelector);
 	const date = useAppSelector(dateSelector);
@@ -29,7 +29,7 @@ const MainWeatherInfo = () => {
 	return (
 		<ToolBox>
 			<CurrentTimeInfo time={time} day={day} date={date} />
-			<CurrentTemperatureInfo temperature={main.temp}/>
+			<CurrentTemperatureInfo temperature={temp}/>
 			{ weather[0] &&
                 <CurrentWeatherConditionsInfo weather={weather[0]}/>
 			}
