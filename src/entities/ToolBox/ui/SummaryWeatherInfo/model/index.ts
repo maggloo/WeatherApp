@@ -12,6 +12,7 @@ const initialState = {
 	currentDay: '',
 	currentTime: '',
 	currentCity: '',
+	dt: 0 as number,
 	currentTemp: 0 as number,
 	sunrise: '',
 	sunset: '',
@@ -28,6 +29,7 @@ export const weatherSlice = createSlice({
 		setCurrentWeather: (state, action: PayloadAction<{weather: CurrentWeatherType}>) => {
 			state.weather = action.payload.weather.weather;
 			state.currentTemp = action.payload.weather.temp;
+			state.dt = action.payload.weather.dt;
 			state.currentDate = dayjs.unix(action.payload.weather.dt).format('DD.MM.YYYY');
 			state.currentTime = dayjs.unix(action.payload.weather.dt).format('HH:mm');
 			state.currentDay = dayjs.unix(action.payload.weather.dt).format('dddd');
