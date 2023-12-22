@@ -27,7 +27,7 @@ const MainWeatherInfo = () => {
 	}, []);
 
 	return (
-		<ToolBox>
+		<ToolBox className={'flex w-full flex-col justify-between overflow-hidden md:h-[25rem]'}>
 			<CurrentTimeInfo time={time} day={day} date={date} />
 			<CurrentTemperatureInfo temperature={temp}/>
 			{ weather[0] &&

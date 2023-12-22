@@ -34,7 +34,7 @@ const Slider = React.forwardRef(({ className,
 			value={localValues}
 			onValueChange={handleValueChange}
 			disabled={true}
-			className={`relative flex w-full max-w-[17rem] touch-none select-none items-center md:max-w-[8rem] ${className}`}
+			className={`relative flex w-full max-w-[17rem] touch-none select-none items-center md:max-w-[8rem] ${className ? className : ''}`}
 			{...props}
 		>
 			<SliderPrimitive.Track className="relative h-1.5 w-full grow select-none overflow-hidden rounded-full bg-gray-300">
