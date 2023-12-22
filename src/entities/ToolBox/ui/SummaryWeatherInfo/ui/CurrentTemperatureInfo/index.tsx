@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import {tempCalculation} from '@/shared/utils';
+import {tempCalculation} from '@/shared/utils/tempCalculation';
 
 
 type CurrentTemperatureInfoPropsType = {
