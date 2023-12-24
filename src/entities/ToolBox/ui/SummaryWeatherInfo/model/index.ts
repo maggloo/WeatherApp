@@ -2,7 +2,7 @@ import {createAsyncThunk, createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {weatherAPI} from '@/shared/api/weatherAPI';
 import {
 	WeatherType,
-	CurrentWeatherType, DailyWeatherType
+	CurrentWeatherType, DailyWeatherType, HourlyWeatherType
 } from '@/shared/types';
 import dayjs from 'dayjs';
 
@@ -18,7 +18,8 @@ const initialState = {
 	sunset: '',
 	wind: {},
 	visibility: 0,
-	forecastList: [] as DailyWeatherType[]
+	forecastList: [] as DailyWeatherType[],
+	hourlyWeather: [] as HourlyWeatherType[]
 };
 
 
@@ -37,6 +38,9 @@ export const weatherSlice = createSlice({
 
 		setTenDaysWeather: (state, action: PayloadAction<{weather: DailyWeatherType[]}>) => {
 			state.forecastList = action.payload.weather;
+		},
+		setHourlyWeather: (state, action: PayloadAction<{weather: HourlyWeatherType[]}>) => {
+			state.hourlyWeather = action.payload.weather;
 		}
 	},
 });
@@ -47,12 +51,12 @@ export const getSummaryWeather = createAsyncThunk('weather/getSummaryWeather',
 		try {
 			const res = await weatherAPI.getCurrentWeather(location);
 			dispatch(setCurrentWeather({weather: res.data.current}));
-			console.log(res.data.daily);
 			dispatch(setTenDaysWeather({weather: res.data.daily}));
+			dispatch(setHourlyWeather({weather: res.data.hourly}));
 		} catch (e) {
 			console.log(e);
 		}
 	});
 
-export const { setCurrentWeather, setTenDaysWeather } = weatherSlice.actions;
+export const { setCurrentWeather, setTenDaysWeather, setHourlyWeather } = weatherSlice.actions;
 export const weatherReducer = weatherSlice.reducer;

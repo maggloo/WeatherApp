@@ -8,3 +8,5 @@ export const dateSelector = (state: AppRootStateType) => state.weather.currentDa
 export const timeSelector = (state: AppRootStateType) => state.weather.currentTime;
 export const daySelector = (state: AppRootStateType) => state.weather.currentDay;
 export const tenDayWeatherSelector = (state: AppRootStateType) => state.weather.forecastList;
+
+export const hourlyWeatherSelector = (state: AppRootStateType) => state.weather.hourlyWeather;
