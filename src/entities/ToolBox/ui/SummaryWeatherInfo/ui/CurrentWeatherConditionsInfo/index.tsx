@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 import {WeatherType} from '@/shared/types';
-import Image from 'next/image';
+import WeatherIcon from '@/shared/ui/WeatherIcon/WeatherIcon';
 
 
 type CurrentWeatherConditionsInfoPropsType = {
@@ -9,10 +9,7 @@ type CurrentWeatherConditionsInfoPropsType = {
 const CurrentWeatherConditionsInfo: FC<CurrentWeatherConditionsInfoPropsType> = ({weather }) => {
 	return (
 		<>
-			<div className={'relative invert-0 dark:invert h-9 w-9'}>
-				<Image src={`https://openweathermap.org/img/wn/${weather.icon}@4x.png`} alt={'weather'} fill/>
-			</div>
-
+			<WeatherIcon src={weather.icon} alt={weather.icon} className={'h-9 w-9'}/>
 			<div className={'font-semibold'}>{weather.main}</div>
 		</>
 	);
