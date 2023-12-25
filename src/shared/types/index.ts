@@ -76,6 +76,11 @@ export type TempType = {
 
 export type FeelsLikeType = Omit<TempType, 'min' | 'max'>
 
+export type WindType = {
+    speed: number
+    direction: number
+}
+
 export type MainType = {
     feels_like: number
     grnd_level: number
