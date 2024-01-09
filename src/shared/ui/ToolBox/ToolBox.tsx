@@ -4,7 +4,7 @@ import CardHeader from '@/shared/ui/CardHeader/CardHeader';
 type ToolBoxPropsType = {
     children: ReactNode
 	className?: string
-	header: string
+	header?: string
 }
 const ToolBox:FC<ToolBoxPropsType> = ({children, className, header}) => {
 	return (
