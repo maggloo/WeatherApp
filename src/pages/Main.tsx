@@ -3,7 +3,7 @@ import MainWeatherInfo from '@/widgets/MainWeatherInfo/ui/MainWeatherInfo';
 import TenDayForecast from '@/widgets/10DayForecast/ui/10DayForecast';
 import HourlyWeather from '@/widgets/HourlyWeather/ui/HourlyWeather';
 import Sunset from '@/widgets/Sunset/ui/Sunset';
-import Windrose from '@/widgets/Windrose';
+import Windrose from '@/widgets/Wind/ui/Windrose';
 
 const Main = () => {
 	return (
