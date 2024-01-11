@@ -4,6 +4,7 @@ import TenDayForecast from '@/widgets/10DayForecast/ui/10DayForecast';
 import HourlyWeather from '@/widgets/HourlyWeather/ui/HourlyWeather';
 import Sunset from '@/widgets/Sunset/ui/Sunset';
 import Windrose from '@/widgets/Wind/ui/Windrose';
+import Precipitation from '@/widgets/Precipitation/ui/Precipitation';
 
 const Main = () => {
 	return (
@@ -18,6 +19,7 @@ const Main = () => {
 						<HourlyWeather />
 						<Sunset />
 						<Windrose/>
+						<Precipitation />
 					</div>
 				</div>
 			</div>
