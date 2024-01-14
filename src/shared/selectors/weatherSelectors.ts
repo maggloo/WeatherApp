@@ -10,5 +10,6 @@ export const daySelector = (state: AppRootStateType) => state.weather.currentDay
 export const sunsetSelector = (state: AppRootStateType) => state.weather.sunset;
 export const sunriseSelector = (state: AppRootStateType) => state.weather.sunrise;
 export const windSelector = (state: AppRootStateType) => state.weather.wind;
+export const precipitationSelector = (state: AppRootStateType) => state.weather.hourlyWeather[0];
 export const tenDayWeatherSelector = (state: AppRootStateType) => state.weather.forecastList;
 export const hourlyWeatherSelector = (state: AppRootStateType) => state.weather.hourlyWeather;
