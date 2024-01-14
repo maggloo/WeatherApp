@@ -40,6 +40,12 @@ export type HourlyWeatherType = {
     wind_gust: number
     weather: WeatherType[]
     pop: number
+    rain?: PrecipitationType
+    snow?: PrecipitationType
+}
+
+export type PrecipitationType = {
+    '1h': number
 }
 
 export type DailyWeatherType = {
