@@ -1,4 +1,6 @@
 import React, {FC} from 'react';
+import CardContent from '@/shared/ui/CardContent';
+import CardFooter from '@/shared/ui/CardFooter';
 
 type SunsetInfoPropsType = {
     sunset: string
@@ -8,16 +10,14 @@ type SunsetInfoPropsType = {
 const SunsetInfo: FC<SunsetInfoPropsType> = ({sunset, sunrise}) => {
 	return (
 		<>
-			<div className="font-semibold md:text-lg">
-				<p>
-					{sunset}
-				</p>
-			</div>
-			<div className="mt-auto flex items-center pt-0 text-xs md:text-sm">
+			<CardContent className="mt-4">
+				{sunset}
+			</CardContent>
+			<CardFooter>
 				<p>
 					Sunrise: {sunrise}
 				</p>
-			</div>
+			</CardFooter>
 		</>
 	);
 };
