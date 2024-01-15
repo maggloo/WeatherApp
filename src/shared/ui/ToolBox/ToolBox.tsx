@@ -6,7 +6,7 @@ type ToolBoxPropsType = {
 	className?: string
 	header?: string
 }
-const ToolBox:FC<ToolBoxPropsType> = ({children, className, header}) => {
+const ToolBox:FC<ToolBoxPropsType> = ({children, className = '', header}) => {
 	return (
 		<div className={`rounded-xl border bg-card p-4 text-card-foreground shadow-sm md:p-6 relative ${className}`}>
 			{ header &&
