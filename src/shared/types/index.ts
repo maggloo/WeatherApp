@@ -44,6 +44,28 @@ export type HourlyWeatherType = {
     snow?: PrecipitationType
 }
 
+export type AirPollutionType = {
+    coord: { lon: number, lat: number },
+    list: ListType[]
+}
+
+type ListType = {
+    dt: number
+    main: { aqi: number }
+    components: ComponentsType
+}
+
+type ComponentsType = {
+    co: number
+    no: number
+    no2: number
+    o3: number
+    so2: number
+    pm2_5: number
+    pm10: number
+    nh3: number
+}
+
 export type PrecipitationType = {
     '1h': number
 }
