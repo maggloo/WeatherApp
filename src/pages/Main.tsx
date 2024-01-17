@@ -6,6 +6,7 @@ import Sunset from '@/widgets/Sunset/ui/Sunset';
 import Windrose from '@/widgets/Wind/ui/Windrose';
 import Precipitation from '@/widgets/Precipitation/ui/Precipitation';
 import AirPollution from '@/widgets/Pollution/ui/AirPollution';
+import UVIndex from '@/widgets/UVIndex';
 
 const Main = () => {
 	return (
@@ -22,6 +23,7 @@ const Main = () => {
 						<Windrose/>
 						<Precipitation />
 						<AirPollution />
+						<UVIndex />
 					</div>
 				</div>
 			</div>
