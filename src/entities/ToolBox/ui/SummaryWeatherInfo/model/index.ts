@@ -20,7 +20,8 @@ const initialState = {
 	visibility: 0,
 	forecastList: [] as DailyWeatherType[],
 	hourlyWeather: [] as HourlyWeatherType[],
-	airPollution: 0 as number
+	airPollution: 0 as number,
+	uv: 0 as number
 };
 
 
@@ -41,6 +42,7 @@ export const weatherSlice = createSlice({
 				speed: action.payload.weather.wind_speed,
 				direction: action.payload.weather.wind_deg
 			};
+			state.uv = action.payload.weather.uvi;
 		},
 
 		setTenDaysWeather: (state, action: PayloadAction<{weather: DailyWeatherType[]}>) => {
@@ -51,7 +53,8 @@ export const weatherSlice = createSlice({
 		},
 		setAirPollution: (state, action: PayloadAction<{pollution: number}>) => {
 			state.airPollution = action.payload.pollution;
-		}
+		},
+
 	},
 });
 
@@ -65,6 +68,7 @@ export const getSummaryWeather = createAsyncThunk('weather/getSummaryWeather',
 			dispatch(setTenDaysWeather({weather: res.data.daily}));
 			dispatch(setHourlyWeather({weather: res.data.hourly}));
 			dispatch(setAirPollution({pollution: resPollution.data.list[0].main.aqi}));
+			console.log(res.data);
 		} catch (e) {
 			console.log(e);
 		}

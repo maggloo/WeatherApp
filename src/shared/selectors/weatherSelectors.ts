@@ -14,4 +14,5 @@ export const precipitationSelector = (state: AppRootStateType) => state.weather.
 export const tenDayWeatherSelector = (state: AppRootStateType) => state.weather.forecastList;
 export const hourlyWeatherSelector = (state: AppRootStateType) => state.weather.hourlyWeather;
 
+export const uvIndexSelector = (state: AppRootStateType) => state.weather.uv;
 export const airPollutionSelector = (state: AppRootStateType) => state.weather.airPollution;
