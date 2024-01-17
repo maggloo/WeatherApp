@@ -14,7 +14,7 @@ const ProgressBar: FC<ProgressBarPropsType> = ({value}) => {
 		>
 			<Progress.Indicator
 				className="h-2.5 w-2.5 flex-1 rounded-full bg-gray-800 shadow-lg shadow-white ring-2 ring-white transition-all dark:ring-black"
-				style={{ marginLeft: `${value * 10 || 0}%` }}
+				style={{ marginLeft: `${value || 0}%` }}
 			/>
 		</Progress.Root>
 	);
