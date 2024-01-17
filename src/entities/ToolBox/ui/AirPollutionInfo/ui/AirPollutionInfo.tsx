@@ -7,11 +7,10 @@ type AirPollutionInfoPropsType = {
 	pollutionData: number
 }
 const AirPollutionInfo: FC<AirPollutionInfoPropsType> = ({ pollutionData }) => {
-	console.log(pollutionData);
 	return (
 		<>
 			<CardContent className="my-auto">
-				<ProgressBar value={pollutionData}/>
+				<ProgressBar value={pollutionData * 10}/>
 			</CardContent>
 			<CardFooter>
 				{pollutionData <= 1
