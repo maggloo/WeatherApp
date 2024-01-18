@@ -7,7 +7,7 @@ const Windrose = () => {
 	const wind = useAppSelector(windSelector);
 
 	return (
-		<ToolBox className="order-4 h-48 xl:order-3" header="Wind">
+		<ToolBox className="order-4 h-48 xl:order-2" header="Wind">
 			<WindInfo wind={wind}/>
 		</ToolBox>
 	);

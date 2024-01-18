@@ -8,7 +8,7 @@ const AirPollution = () => {
 	const pollutionData = useAppSelector(airPollutionSelector);
 
 	return (
-		<ToolBox header={'Air pollution'} className="order-2 col-span-2 flex h-48 flex-col justify-between">
+		<ToolBox header={'Air pollution'} className="order-2 md:order-1 col-span-2 flex h-48 flex-col justify-between">
 			<AirPollutionInfo pollutionData={pollutionData}/>
 		</ToolBox>
 	);

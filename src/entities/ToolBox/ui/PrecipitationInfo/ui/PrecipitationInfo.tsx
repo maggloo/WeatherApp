@@ -10,7 +10,7 @@ type PrecipitationInfoPropsType = {
 const PrecipitationInfo: FC<PrecipitationInfoPropsType> = ({ precipitation, typePrecipitation }) => {
 	return (
 		<div>
-			<CardContent className="mb-6">
+			<CardContent className="mb-8">
 				{precipitation?.['1h'] || 0}mm <br></br>in the last 3h
 			</CardContent>
 			<CardFooter>

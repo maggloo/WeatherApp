@@ -7,7 +7,7 @@ type CurrentTemperatureInfoPropsType = {
 }
 const CurrentTemperatureInfo: FC<CurrentTemperatureInfoPropsType> = ({ temperature }) => {
 	return (
-		<div className={'flex justify-center py-7 text-8xl font-bold md:py-10'}> {`${tempCalculation(temperature)}°`} </div>
+		<div className={'flex justify-center py-7 text-8xl font-bold md:py-10'}> {tempCalculation(temperature)}&deg;</div>
 	);
 };
 
