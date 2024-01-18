@@ -7,6 +7,10 @@ import Windrose from '@/widgets/Wind/ui/Windrose';
 import Precipitation from '@/widgets/Precipitation/ui/Precipitation';
 import AirPollution from '@/widgets/Pollution/ui/AirPollution';
 import UVIndex from '@/widgets/UVIndex';
+import FeelsLike from '@/widgets/FeelsLike';
+import Humidity from '@/widgets/Humidity/Humidity';
+import Visibility from '@/widgets/Visibility';
+import Pressure from '@/widgets/Pressure';
 
 const Main = () => {
 	return (
@@ -18,12 +22,17 @@ const Main = () => {
 						<TenDayForecast />
 					</div>
 					<div className="grid h-full grid-cols-2 gap-4 lg:grid-cols-3 xl:grid-cols-4">
-						<HourlyWeather />
-						<Sunset />
-						<Windrose/>
-						<Precipitation />
 						<AirPollution />
+						<HourlyWeather />
+						<Windrose />
+						<Sunset />
+
 						<UVIndex />
+						<Precipitation />
+						<FeelsLike />
+						<Humidity />
+						<Visibility />
+						<Pressure />
 					</div>
 				</div>
 			</div>

@@ -21,7 +21,10 @@ const initialState = {
 	forecastList: [] as DailyWeatherType[],
 	hourlyWeather: [] as HourlyWeatherType[],
 	airPollution: 0 as number,
-	uv: 0 as number
+	uv: 0 as number,
+	feelsLike: 0 as number,
+	humidity: 0 as number,
+	pressure: 0 as number
 };
 
 
@@ -43,6 +46,10 @@ export const weatherSlice = createSlice({
 				direction: action.payload.weather.wind_deg
 			};
 			state.uv = action.payload.weather.uvi;
+			state.feelsLike = action.payload.weather.feels_like;
+			state.humidity = action.payload.weather.humidity;
+			state.visibility = action.payload.weather.visibility;
+			state.pressure = action.payload.weather.pressure;
 		},
 
 		setTenDaysWeather: (state, action: PayloadAction<{weather: DailyWeatherType[]}>) => {
