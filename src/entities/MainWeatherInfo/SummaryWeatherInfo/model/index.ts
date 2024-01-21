@@ -95,7 +95,6 @@ export const getSummaryWeather = createAsyncThunk('weather/getSummaryWeather',
 			dispatch(setTenDaysWeather({weather: res.data.daily}));
 			dispatch(setHourlyWeather({weather: res.data.hourly}));
 			dispatch(setAirPollution({pollution: resPollution.data.list[0].main.aqi}));
-			console.log(res.data);
 		} catch (e) {
 			console.log(e);
 		}
