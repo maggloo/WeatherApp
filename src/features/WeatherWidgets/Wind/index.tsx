@@ -2,8 +2,9 @@ import React from 'react';
 import {useAppSelector} from '@/app/store/store';
 import {windSelector} from '@/shared/selectors/weatherSelectors';
 import ToolBox from '@/shared/ui/ToolBox/ToolBox';
-import WindInfo from '@/entities/ToolBox/ui/WindInfo/ui/WindInfo';
-const Windrose = () => {
+import {WindInfo} from '@/entities/WeatherWidgets';
+
+export const Wind = () => {
 	const wind = useAppSelector(windSelector);
 
 	return (
@@ -13,4 +14,3 @@ const Windrose = () => {
 	);
 };
 
-export default Windrose;

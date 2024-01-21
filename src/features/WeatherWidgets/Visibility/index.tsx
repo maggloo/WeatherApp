@@ -2,10 +2,9 @@ import React from 'react';
 import ToolBox from '@/shared/ui/ToolBox/ToolBox';
 import {useAppSelector} from '@/app/store/store';
 import {visibilitySelector} from '@/shared/selectors/weatherSelectors';
-import VisibilityInfo from '@/entities/ToolBox/ui/VisibilityInfo';
+import {VisibilityInfo} from '@/entities/WeatherWidgets';
 
-
-const Visibility = () => {
+export const Visibility = () => {
 
 	const visibility = useAppSelector(visibilitySelector);
 
@@ -16,4 +15,3 @@ const Visibility = () => {
 	);
 };
 
-export default Visibility;

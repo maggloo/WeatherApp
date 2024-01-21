@@ -1,7 +1,5 @@
 import React, {useEffect} from 'react';
-import CurrentTimeInfo from '@/entities/ToolBox/ui/SummaryWeatherInfo/ui/CurrentTimeInfo';
-import CurrentTemperatureInfo from '@/entities/ToolBox/ui/SummaryWeatherInfo/ui/CurrentTemperatureInfo';
-import CurrentWeatherConditionsInfo from '@/entities/ToolBox/ui/SummaryWeatherInfo/ui/CurrentWeatherConditionsInfo';
+
 import ToolBox from '@/shared/ui/ToolBox/ToolBox';
 import {useAppDispatch, useAppSelector} from '@/app/store/store';
 import {
@@ -11,7 +9,9 @@ import {
 	timeSelector,
 	weatherSelector
 } from '@/shared/selectors/weatherSelectors';
-import {getSummaryWeather} from '@/entities/ToolBox/ui/SummaryWeatherInfo/model';
+import {CurrentTemperatureInfo, CurrentTimeInfo, CurrentWeatherConditionsInfo} from '@/entities/MainWeatherInfo';
+import {getSummaryWeather} from '@/entities/MainWeatherInfo/SummaryWeatherInfo/model';
+
 
 const MainWeatherInfo = () => {
 

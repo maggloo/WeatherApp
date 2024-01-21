@@ -1,10 +1,10 @@
 import React from 'react';
 import ToolBox from '@/shared/ui/ToolBox/ToolBox';
-import AirPollutionInfo from '@/entities/ToolBox/ui/AirPollutionInfo/ui/AirPollutionInfo';
 import {useAppSelector} from '@/app/store/store';
 import {airPollutionSelector} from '@/shared/selectors/weatherSelectors';
+import {AirPollutionInfo} from '@/entities/WeatherWidgets';
 
-const AirPollution = () => {
+export const Pollution = () => {
 	const pollutionData = useAppSelector(airPollutionSelector);
 
 	return (
@@ -14,4 +14,3 @@ const AirPollution = () => {
 	);
 };
 
-export default AirPollution;

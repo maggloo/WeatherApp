@@ -2,8 +2,8 @@ import React from 'react';
 import {useAppSelector} from '@/app/store/store';
 import {tenDayWeatherSelector} from '@/shared/selectors/weatherSelectors';
 import ToolBox from '@/shared/ui/ToolBox/ToolBox';
-import ForecastForOneDayInfo from '@/entities/ToolBox/ui/TenDaysForecastInfo/ui/ForecastForOneDayInfo/ui';
 import {DailyWeatherType} from '@/shared/types';
+import {ForecastForOneDayInfo} from '@/entities/MainWeatherInfo';
 
 const TenDayForecast = () => {
 	const forecast = useAppSelector(tenDayWeatherSelector);

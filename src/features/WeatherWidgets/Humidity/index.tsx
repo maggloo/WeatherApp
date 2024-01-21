@@ -2,9 +2,9 @@ import React from 'react';
 import ToolBox from '@/shared/ui/ToolBox/ToolBox';
 import {useAppSelector} from '@/app/store/store';
 import {humiditySelector} from '@/shared/selectors/weatherSelectors';
-import HumidityInfo from '@/entities/ToolBox/ui/HumidityInfo';
+import {HumidityInfo} from '@/entities/WeatherWidgets';
 
-const Humidity = () => {
+export const Humidity = () => {
 
 	const humidity = useAppSelector(humiditySelector);
 
@@ -15,4 +15,3 @@ const Humidity = () => {
 	);
 };
 
-export default Humidity;

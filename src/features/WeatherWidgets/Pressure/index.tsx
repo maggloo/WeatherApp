@@ -2,9 +2,9 @@ import React from 'react';
 import ToolBox from '@/shared/ui/ToolBox/ToolBox';
 import {useAppSelector} from '@/app/store/store';
 import {pressureSelector} from '@/shared/selectors/weatherSelectors';
-import PressureInfo from '@/entities/ToolBox/ui/PressureInfo';
+import {PressureInfo} from '@/entities/WeatherWidgets';
 
-const Pressure = () => {
+export const Pressure = () => {
 
 	const pressure = useAppSelector(pressureSelector);
 
@@ -15,4 +15,3 @@ const Pressure = () => {
 	);
 };
 
-export default Pressure;

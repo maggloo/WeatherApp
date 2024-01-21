@@ -1,10 +1,10 @@
 import React from 'react';
 import ToolBox from '@/shared/ui/ToolBox/ToolBox';
-import UVInfo from '@/entities/ToolBox/ui/UVInfo';
 import {useAppSelector} from '@/app/store/store';
 import {uvIndexSelector} from '@/shared/selectors/weatherSelectors';
+import {UVInfo} from '@/entities/WeatherWidgets';
 
-const UVIndex = () => {
+export const UVIndex = () => {
 
 	const uvIndex = useAppSelector(uvIndexSelector);
 
@@ -15,4 +15,3 @@ const UVIndex = () => {
 	);
 };
 
-export default UVIndex;

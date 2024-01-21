@@ -2,9 +2,9 @@ import React from 'react';
 import {useAppSelector} from '@/app/store/store';
 import {hourlyWeatherSelector} from '@/shared/selectors/weatherSelectors';
 import ToolBox from '@/shared/ui/ToolBox/ToolBox';
-import OneHourWeatherInfo from '@/entities/ToolBox/ui/HourlyWeatherInfo/ui/OneHourWeatherInfo';
+import {OneHourWeatherInfo} from '@/entities/WeatherWidgets';
 
-const HourlyWeather = () => {
+export const HourlyWeather = () => {
 
 	const hourlyWeatherArray = useAppSelector(hourlyWeatherSelector);
 
@@ -18,5 +18,3 @@ const HourlyWeather = () => {
 		</ToolBox>
 	);
 };
-
-export default HourlyWeather;

@@ -1,10 +1,10 @@
 import React from 'react';
 import ToolBox from '@/shared/ui/ToolBox/ToolBox';
-import FeelsLikeInfo from '@/entities/ToolBox/ui/FeelsLikeInfo';
 import {useAppSelector} from '@/app/store/store';
 import {feelsLikeSelector, tempSelector} from '@/shared/selectors/weatherSelectors';
+import {FeelsLikeInfo} from '@/entities/WeatherWidgets';
 
-const FeelsLike = () => {
+export const FeelsLike = () => {
 
 	const feelsLike = useAppSelector(feelsLikeSelector);
 	const actualTemp = useAppSelector(tempSelector);
@@ -16,4 +16,3 @@ const FeelsLike = () => {
 	);
 };
 
-export default FeelsLike;
