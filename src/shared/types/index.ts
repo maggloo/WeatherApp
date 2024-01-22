@@ -19,6 +19,8 @@ export type CurrentWeatherType = {
     uvi: number
     clouds: number
     visibility: number
+    snow?: PrecipitationType
+    rain?: PrecipitationType
     wind_speed: number
     wind_deg: number
     wind_gust: number
