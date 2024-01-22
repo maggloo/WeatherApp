@@ -1,12 +1,11 @@
-import React from 'react';
+import React, {FC} from 'react';
 import ToolBox from '@/shared/ui/ToolBox/ToolBox';
-import {useAppSelector} from '@/app/store/store';
-import {pressureSelector} from '@/shared/selectors/weatherSelectors';
 import {PressureInfo} from '@/entities/WeatherWidgets';
 
-export const Pressure = () => {
-
-	const pressure = useAppSelector(pressureSelector);
+type PressurePropsType = {
+	pressure: number
+}
+export const Pressure: FC<PressurePropsType> = ({pressure}) => {
 
 	return (
 		<ToolBox header={'Pressure'} className='order-10 flex h-48 flex-col justify-between'>

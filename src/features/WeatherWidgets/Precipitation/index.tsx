@@ -1,19 +1,17 @@
-import React from 'react';
+import React, {FC} from 'react';
 import ToolBox from '@/shared/ui/ToolBox/ToolBox';
-import {useAppSelector} from '@/app/store/store';
-import {precipitationSelector} from '@/shared/selectors/weatherSelectors';
 import {PrecipitationInfo} from '@/entities/WeatherWidgets';
+import {PrecipitationType} from '@/shared/types';
 
-export const Precipitation = () => {
-
-	const precipitationInfo = useAppSelector(precipitationSelector);
-
-
-	const typePrecipitation = precipitationInfo && (precipitationInfo.rain ? 'Rain' : precipitationInfo.snow ? 'Snow' : undefined);
+type PrecipitationPropsType = {
+	precipitationInfo: PrecipitationType | undefined
+	type:  string | undefined
+}
+export const Precipitation: FC<PrecipitationPropsType> = ({ precipitationInfo, type}) => {
 
 	return (
 		<ToolBox header="Index" className="order-6 flex h-48 flex-col justify-between">
-			<PrecipitationInfo precipitation={precipitationInfo && (precipitationInfo.rain || precipitationInfo.snow)} typePrecipitation={typePrecipitation} />
+			<PrecipitationInfo precipitation={precipitationInfo} typePrecipitation={type} />
 		</ToolBox>
 	);
 };

@@ -5,7 +5,7 @@ import CardFooter from '@/shared/ui/CardFooter';
 
 type PrecipitationInfoPropsType = {
 	precipitation: PrecipitationType | undefined
-	typePrecipitation: 'Snow' | 'Rain' | undefined
+	typePrecipitation: string | undefined
 }
 export const PrecipitationInfo: FC<PrecipitationInfoPropsType> = ({ precipitation, typePrecipitation }) => {
 	return (
@@ -15,7 +15,7 @@ export const PrecipitationInfo: FC<PrecipitationInfoPropsType> = ({ precipitatio
 			</CardContent>
 			<CardFooter>
 				{typePrecipitation
-					? typePrecipitation === 'Snow'
+					? typePrecipitation === 'snow'
 						? 'Snowy conditions.' : 'Rainy conditions.'
 					: 'Conditions are dry.'}
 			</CardFooter>

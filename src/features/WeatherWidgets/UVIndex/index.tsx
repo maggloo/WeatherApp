@@ -1,16 +1,15 @@
-import React from 'react';
+import React, {FC} from 'react';
 import ToolBox from '@/shared/ui/ToolBox/ToolBox';
-import {useAppSelector} from '@/app/store/store';
-import {uvIndexSelector} from '@/shared/selectors/weatherSelectors';
 import {UVInfo} from '@/entities/WeatherWidgets';
 
-export const UVIndex = () => {
-
-	const uvIndex = useAppSelector(uvIndexSelector);
+type UVIndexPropsType = {
+	uvi: number
+}
+export const UVIndex: FC<UVIndexPropsType> = ({ uvi }) => {
 
 	return (
 		<ToolBox header="UV Index" className="order-5 flex h-48 flex-col justify-between">
-			<UVInfo uvIndex={uvIndex}/>
+			<UVInfo uvIndex={uvi}/>
 		</ToolBox>
 	);
 };

@@ -1,13 +1,13 @@
-import React from 'react';
-import {useAppSelector} from '@/app/store/store';
-import {hourlyWeatherSelector} from '@/shared/selectors/weatherSelectors';
+import React, {FC} from 'react';
+
 import ToolBox from '@/shared/ui/ToolBox/ToolBox';
 import {OneHourWeatherInfo} from '@/entities/WeatherWidgets';
+import {HourlyWeatherType} from '@/shared/types';
 
-export const HourlyWeather = () => {
-
-	const hourlyWeatherArray = useAppSelector(hourlyWeatherSelector);
-
+type HourlyWeatherPropsType = {
+	hourlyWeatherArray: HourlyWeatherType[]
+}
+export const HourlyWeather: FC<HourlyWeatherPropsType> = ({ hourlyWeatherArray}) => {
 	return (
 		<ToolBox className={'order-1 col-span-2 flex h-48 select-none flex-row items-center justify-between gap-12 overflow-hidden p-6 md:order-2 lg:order-3'}>
 			{

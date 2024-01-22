@@ -1,12 +1,11 @@
-import React from 'react';
+import React, {FC} from 'react';
 import ToolBox from '@/shared/ui/ToolBox/ToolBox';
-import {useAppSelector} from '@/app/store/store';
-import {humiditySelector} from '@/shared/selectors/weatherSelectors';
 import {HumidityInfo} from '@/entities/WeatherWidgets';
 
-export const Humidity = () => {
-
-	const humidity = useAppSelector(humiditySelector);
+type HumidityPropsType = {
+	humidity: number
+}
+export const Humidity: FC<HumidityPropsType> = ({humidity}) => {
 
 	return (
 		<ToolBox header={'Humidity'} className='order-8 flex h-48 flex-col justify-between'>

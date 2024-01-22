@@ -1,12 +1,11 @@
-import React from 'react';
+import React, {FC} from 'react';
 import ToolBox from '@/shared/ui/ToolBox/ToolBox';
-import {useAppSelector} from '@/app/store/store';
-import {visibilitySelector} from '@/shared/selectors/weatherSelectors';
 import {VisibilityInfo} from '@/entities/WeatherWidgets';
 
-export const Visibility = () => {
-
-	const visibility = useAppSelector(visibilitySelector);
+type VisibilityPropsType = {
+	visibility: number
+}
+export const Visibility: FC<VisibilityPropsType> = ({ visibility}) => {
 
 	return (
 		<ToolBox header={'Visibility'} className='order-9 flex h-48 flex-col justify-between'>
