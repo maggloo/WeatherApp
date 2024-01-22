@@ -1,12 +1,12 @@
-import React from 'react';
-import {useAppSelector} from '@/app/store/store';
-import {tenDayWeatherSelector} from '@/shared/selectors/weatherSelectors';
+import React, {FC} from 'react';
 import ToolBox from '@/shared/ui/ToolBox/ToolBox';
 import {DailyWeatherType} from '@/shared/types';
 import {ForecastForOneDayInfo} from '@/entities/MainWeatherInfo';
 
-const TenDayForecast = () => {
-	const forecast = useAppSelector(tenDayWeatherSelector);
+type TenDayForecastPropsType = {
+	forecast: DailyWeatherType[];
+}
+const TenDayForecast: FC<TenDayForecastPropsType> = ({forecast}) => {
 
 	const temperatures = forecast.map((item: DailyWeatherType) => item.temp);
 	const minTemperature = Math.min(...temperatures.map((temp) => temp.min));
