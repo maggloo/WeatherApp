@@ -3,6 +3,7 @@ import MainWeather from '@/widgets/MainWeather';
 import {getSummaryWeather} from '@/entities/MainWeatherInfo/SummaryWeatherInfo/model';
 import {useAppDispatch} from '@/app/store/store';
 import WeatherWidgets from '@/widgets/WeatherWidgets';
+import {Search} from '@/shared/ui/Search';
 
 const Main = () => {
 
