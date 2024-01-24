@@ -35,6 +35,7 @@ module.exports = {
 			'error',
 			'tab'
 		],
+		'no-mixed-spaces-and-tabs': 0, // disable rule
 		'linebreak-style': [
 			'error',
 			'windows'
