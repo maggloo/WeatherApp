@@ -3,7 +3,7 @@ import MainWeather from '@/widgets/MainWeather';
 import {getSummaryWeather} from '@/entities/MainWeatherInfo/SummaryWeatherInfo/model';
 import {useAppDispatch} from '@/app/store/store';
 import WeatherWidgets from '@/widgets/WeatherWidgets';
-import {Search} from '@/shared/ui/Search';
+import {PlacesAutocomplete} from '@/shared/ui/PlacesAutocomplete';
 
 const Main = () => {
 
@@ -17,6 +17,7 @@ const Main = () => {
 	return (
 		<div className="container mx-auto flex min-h-screen flex-col px-[1rem] antialiased md:px-[2rem]">
 			<div className="flex-grow">
+				<PlacesAutocomplete/>
 				<div className="flex flex-col gap-4 md:flex-row">
 					<MainWeather />
 					<WeatherWidgets />
