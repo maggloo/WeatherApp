@@ -1,40 +1,33 @@
 import * as SliderPrimitive from '@radix-ui/react-slider';
-import React, {useState} from 'react';
+import React, {FC, useEffect, useState} from 'react';
 
 type SliderProps = {
     className?: string
     min: number
     max: number
     minStepsBetweenThumbs?: number
-    formatLabel?: (value: number) => string
     value?: number[] | readonly number[]
-    onValueChange?: (values: number[]) => void
 }
-const Slider = React.forwardRef(({ className,
+export const Slider: FC<SliderProps> = ({ className,
 	min,
 	max,
-	formatLabel,
 	value,
-	onValueChange,
-	...props}: SliderProps, forwardedRef) => {
+	...props}) => {
+
 	const initialValue = Array.isArray(value) ? value : [min, max];
 	const [localValues, setLocalValues] = useState(initialValue);
-	const handleValueChange = (newValues: number[]) => {
-		setLocalValues(newValues);
-		if (onValueChange) {
-			onValueChange(newValues);
-		}
-	};
+
+	useEffect(() => {
+		setLocalValues(initialValue);
+	}, [initialValue]);
 
 	return (
 		<SliderPrimitive.Root
-			ref={forwardedRef as React.RefObject<HTMLDivElement>}
 			min={min}
 			max={max}
 			value={localValues}
-			onValueChange={handleValueChange}
 			disabled={true}
-			className={`relative flex w-full max-w-[17rem] touch-none select-none items-center md:max-w-[8rem] ${className ? className : ''}`}
+			className={'relative flex w-full max-w-[17rem] touch-none select-none items-center md:max-w-[8rem]'}
 			{...props}
 		>
 			<SliderPrimitive.Track className="relative h-1.5 w-full grow select-none overflow-hidden rounded-full bg-gray-300">
@@ -42,8 +35,4 @@ const Slider = React.forwardRef(({ className,
 			</SliderPrimitive.Track>
 		</SliderPrimitive.Root>
 	);
-});
-
-Slider.displayName = SliderPrimitive.Root.displayName;
-
-export { Slider };
+};
