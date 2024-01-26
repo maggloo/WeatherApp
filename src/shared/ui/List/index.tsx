@@ -1,14 +1,16 @@
-import React, {FC} from 'react';
+import React, {FC, MouseEventHandler} from 'react';
 import {Table} from '@radix-ui/themes';
+import AutocompletePrediction = google.maps.places.AutocompletePrediction;
+import styles from './List.module.css';
 
 type ListPropsType = {
 	status: string
-	data: any[]
-	handleSelect: any
+	data: AutocompletePrediction[]
+	handleSelect: (suggestion: AutocompletePrediction) => MouseEventHandler<HTMLTableDataCellElement>
 }
 export const List: FC<ListPropsType> = ({status, data, handleSelect}) => {
 	return (
-		<Table.Root variant="surface">
+		<Table.Root variant="surface" className={styles.root}>
 			<Table.Body>
 				{status === 'OK' &&
 					data.map((suggestion) => (
@@ -21,13 +23,15 @@ export const List: FC<ListPropsType> = ({status, data, handleSelect}) => {
 };
 
 type ListItemPropsType = {
-	suggestion: any
-	handleSelect: any
+	suggestion: AutocompletePrediction
+	handleSelect: (suggestion: AutocompletePrediction) => MouseEventHandler<HTMLTableDataCellElement>
 }
 export const ListItem: FC<ListItemPropsType> = ({suggestion, handleSelect}) => {
+
+
 	return (
 		<Table.Row key={suggestion.place_id} >
-			<Table.Cell onClick={handleSelect(suggestion)}>
+			<Table.Cell onClick={handleSelect(suggestion)} className={styles.cell}>
 				<strong>{suggestion.description}</strong>
 			</Table.Cell>
 		</Table.Row>

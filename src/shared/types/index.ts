@@ -106,21 +106,6 @@ export type TempType = {
 
 export type FeelsLikeType = Omit<TempType, 'min' | 'max'>
 
-export type WindType = {
-    speed: number
-    direction: number
-}
-
-export type MainType = {
-    feels_like: number
-    grnd_level: number
-    humidity: number
-    pressure: number
-    sea_level: number
-    temp: number
-    temp_max: number
-    temp_min: number
-}
 
 export type WeatherType = {
     description: string

@@ -5,6 +5,9 @@ import usePlacesAutocomplete, {
 } from 'use-places-autocomplete';
 import {Input} from '@/shared/ui/Input';
 import {List} from '@/shared/ui/List';
+import AutocompletePrediction = google.maps.places.AutocompletePrediction;
+import {useAppDispatch} from '@/app/store/store';
+import {updateCurrentCity} from '@/features/SearchCities/model';
 
 export const PlacesAutocomplete = () => {
 
@@ -22,8 +25,10 @@ export const PlacesAutocomplete = () => {
 		debounce: 300,
 	});
 
+	const dispatch = useAppDispatch();
+
 	const handleSelect =
-        ({ description }: never) => () => {
+        ({ description }: AutocompletePrediction) => () => {
         	// When the user selects a place, we can replace the keyword without request data from API// by setting the second parameter to "false"
         	setValue(description, false);
         	clearSuggestions();
@@ -31,15 +36,14 @@ export const PlacesAutocomplete = () => {
         	// Get latitude and longitude via utility functions
         	getGeocode({ address: description }).then((results) => {
         		const { lat, lng } = getLatLng(results[0]);
-        		console.log('📍 Coordinates: ', { lat, lng });
+        		dispatch(updateCurrentCity({lat, lng}));
         	});
         };
 
 	return (
-		<div>
-			{/* We can use the "status" to decide whether we should display the dropdown or not */}
+		<div className='relative md:w-1/2 w-full'>
 			<Input setValue={setValue} searchValue={value} disabled={!ready} placeholder={'Search city...'} />
-			<List data={data} handleSelect={handleSelect} status={status}/>
+			{!!data.length && <List data={data} handleSelect={handleSelect} status={status}/> }
 		</div>
 	);
 };
