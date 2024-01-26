@@ -1,12 +1,13 @@
 import {API_KEY, instance} from '@/shared/api/apiI';
 import {AirPollutionType, ForecastSummaryResponseType} from '@/shared/types';
+import {cityType} from '@/features/SearchCities/model';
 
 export const weatherAPI = {
-	getCurrentWeather(location: string) {
-		return instance.get<ForecastSummaryResponseType>(`onecall?lat=53.9&lon=27.5667&exclude=minutely,alerts&units=metric&appid=${API_KEY}`);
+	getCurrentWeather(location: cityType) {
+		return instance.get<ForecastSummaryResponseType>(`onecall?lat=${location.lat}&lon=${location.lng}&exclude=minutely,alerts&units=metric&appid=${API_KEY}`);
 	},
-	getAirPollution(location: string) {
-		return instance.get<AirPollutionType>(`air_pollution?lat=53.9&lon=27.5667&appid=${API_KEY}`);
+	getAirPollution(location: cityType) {
+		return instance.get<AirPollutionType>(`air_pollution?lat=${location.lat}&lon=${location.lng}&appid=${API_KEY}`);
 	}
 };
 

@@ -3,6 +3,7 @@ import {weatherAPI} from '@/shared/api/weatherAPI';
 import {
 	CurrentWeatherType, DailyWeatherType, HourlyWeatherType,
 } from '@/shared/types';
+import {cityType} from '@/features/SearchCities/model';
 
 type initialStateType = {
 	current: CurrentWeatherType & {pollution?: number},
@@ -37,7 +38,7 @@ export const weatherSlice = createSlice({
 
 
 export const getSummaryWeather = createAsyncThunk('weather/getSummaryWeather',
-	async (location: string, { dispatch }) => {
+	async (location: cityType, { dispatch }) => {
 		try {
 			const res = await weatherAPI.getCurrentWeather(location);
 			const resPollution = await weatherAPI.getAirPollution(location);
