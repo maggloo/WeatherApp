@@ -3,9 +3,11 @@ import {thunk} from 'redux-thunk';
 import {configureStore} from '@reduxjs/toolkit';
 import {TypedUseSelectorHook, useDispatch, useSelector} from 'react-redux';
 import {weatherReducer} from '@/entities/MainWeatherInfo/SummaryWeatherInfo/model';
+import {citiesReducer} from '@/features/SearchCities/model';
 
 const rootReducer = combineReducers({
 	weather: weatherReducer,
+	cities: citiesReducer
 });
 export const store = configureStore({
 	reducer: rootReducer,
