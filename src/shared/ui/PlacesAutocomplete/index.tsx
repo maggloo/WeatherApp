@@ -41,7 +41,7 @@ export const PlacesAutocomplete = () => {
         };
 
 	return (
-		<div className='relative md:w-1/2 w-full'>
+		<div className='absolute top-4 md:w-1/2 w-full'>
 			<Input setValue={setValue} searchValue={value} disabled={!ready} placeholder={'Search city...'} />
 			{!!data.length && <List data={data} handleSelect={handleSelect} status={status}/> }
 		</div>

@@ -11,7 +11,7 @@ type ListPropsType = {
 export const List: FC<ListPropsType> = ({status, data, handleSelect}) => {
 	return (
 		<Table.Root variant="surface" className={styles.root}>
-			<Table.Body>
+			<Table.Body className={styles.body}>
 				{status === 'OK' &&
 					data.map((suggestion) => (
 						<ListItem key={suggestion.place_id} suggestion={suggestion} handleSelect={handleSelect}/>
