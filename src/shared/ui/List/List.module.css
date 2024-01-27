@@ -1,13 +1,15 @@
 .root {
-    position: absolute;
     width: 100%;
-    height: fit-content;
     z-index: 1;
+    top: 5px;
     box-shadow: 5px 69px 84px 30px rgba(13, 19, 24, 0.2);
 }
 
-.cell {
+.body {
     background-color: white;
+}
+
+.cell {
     cursor: pointer;
 }
 
