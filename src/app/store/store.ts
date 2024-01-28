@@ -4,10 +4,12 @@ import {configureStore} from '@reduxjs/toolkit';
 import {TypedUseSelectorHook, useDispatch, useSelector} from 'react-redux';
 import {weatherReducer} from '@/entities/MainWeatherInfo/SummaryWeatherInfo/model';
 import {citiesReducer} from '@/features/SearchCities/model';
+import {appReducer} from '@/app/model';
 
 const rootReducer = combineReducers({
 	weather: weatherReducer,
-	cities: citiesReducer
+	cities: citiesReducer,
+	app: appReducer
 });
 export const store = configureStore({
 	reducer: rootReducer,
