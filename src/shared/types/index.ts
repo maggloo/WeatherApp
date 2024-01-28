@@ -95,6 +95,9 @@ export type DailyWeatherType = {
     uvi: number
 }
 
+export type AppStatusType = 'idle' | 'loading' | 'success' | 'error';
+
+
 export type TempType = {
     day: number
     min: number
