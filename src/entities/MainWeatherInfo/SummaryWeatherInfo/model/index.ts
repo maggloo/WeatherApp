@@ -4,6 +4,7 @@ import {
 	CurrentWeatherType, DailyWeatherType, HourlyWeatherType,
 } from '@/shared/types';
 import {cityType} from '@/features/SearchCities/model';
+import {setAppStatus} from '@/app/model';
 
 type initialStateType = {
 	current: CurrentWeatherType & {pollution?: number},
@@ -39,15 +40,19 @@ export const weatherSlice = createSlice({
 
 export const getSummaryWeather = createAsyncThunk('weather/getSummaryWeather',
 	async (location: cityType, { dispatch }) => {
+		dispatch(setAppStatus('loading'));
 		try {
+
 			const res = await weatherAPI.getCurrentWeather(location);
 			const resPollution = await weatherAPI.getAirPollution(location);
 			dispatch(setCurrentWeather({weather: res.data.current}));
 			dispatch(setTenDaysWeather({weather: res.data.daily}));
 			dispatch(setHourlyWeather({weather: res.data.hourly}));
 			dispatch(setAirPollution({pollution: resPollution.data.list[0].main.aqi}));
+			dispatch(setAppStatus('success'));
 		} catch (e) {
 			console.log(e);
+			dispatch(setAppStatus('error'));
 		}
 	});
 
