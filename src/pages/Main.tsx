@@ -6,6 +6,7 @@ import WeatherWidgets from '@/widgets/WeatherWidgets';
 import {Nav} from '@/widgets/Nav';
 import {appStatusSelector} from '@/shared/selectors/weatherSelectors';
 import {Loading} from '@/shared/ui/Loading';
+import {Error} from '@/shared/ui/Error';
 
 const Main = () => {
 
@@ -13,20 +14,21 @@ const Main = () => {
 	const status = useAppSelector(appStatusSelector);
 
 	useEffect(() => {
-		dispatch(getSummaryWeather({lat: 53.9006, lng: 27.5590}));
+		dispatch(getSummaryWeather({lat: 53.9006, lng: 27.5590, name: 'Minsk, Belarus'}));
 	}, []);
 
-	console.log(status);
 	return (
 		<div className="container mx-auto flex min-h-screen flex-col px-[1rem] antialiased md:px-[2rem]">
 			<div className="flex-grow">
 				<Nav />
 				{
 					status === 'loading' ? <Loading /> :
-						<div className="flex flex-col gap-4 md:flex-row">
-							<MainWeather />
-							<WeatherWidgets />
-						</div>
+						status === 'success' ?
+							<div className="flex flex-col gap-4 md:flex-row">
+								<MainWeather />
+								<WeatherWidgets />
+							</div>
+							: <Error />
 				}
 			</div>
 		</div>
