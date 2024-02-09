@@ -7,6 +7,7 @@ import {setAppStatus} from '@/app/model';
 export type cityType = {
 	lat: number
 	lng: number
+	name: string
 }
 
 type initialStateType = {
