@@ -36,7 +36,8 @@ export const PlacesAutocomplete = () => {
         	// Get latitude and longitude via utility functions
         	getGeocode({ address: description }).then((results) => {
         		const { lat, lng } = getLatLng(results[0]);
-        		dispatch(updateCurrentCity({lat, lng}));
+        		console.log(description);
+        		dispatch(updateCurrentCity({lat, lng, name: description}));
         	});
         };
 
