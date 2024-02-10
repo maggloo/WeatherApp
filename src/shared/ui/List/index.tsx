@@ -28,7 +28,6 @@ type ListItemPropsType = {
 }
 export const ListItem: FC<ListItemPropsType> = ({suggestion, handleSelect}) => {
 
-
 	return (
 		<Table.Row key={suggestion.place_id} >
 			<Table.Cell onClick={handleSelect(suggestion)} className={styles.cell}>
