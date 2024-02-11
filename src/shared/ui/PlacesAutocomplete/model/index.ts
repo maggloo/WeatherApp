@@ -5,9 +5,12 @@ import usePlacesAutocomplete, {
 } from 'use-places-autocomplete';
 import {updateCurrentCity} from '@/features/SearchCities/model';
 import AutocompletePrediction = google.maps.places.AutocompletePrediction;
+import {useRouter} from 'next/router';
 
 
 export const usePlacesAutocompleteHook = () => {
+	const router = useRouter();
+
 	const {
 		ready,
 		value,
@@ -32,7 +35,8 @@ export const usePlacesAutocompleteHook = () => {
         	// Get latitude and longitude via utility functions
         	getGeocode({ address: description }).then((results) => {
         		const { lat, lng } = getLatLng(results[0]);
-        		dispatch(updateCurrentCity({lat, lng, name: description}));
+        		dispatch(updateCurrentCity({lat: lat.toString(), lng: lng.toString(), name: description}));
+			router.push(`/?lat=${lat}&lon=${lng}`);
         	});
 	};
 
