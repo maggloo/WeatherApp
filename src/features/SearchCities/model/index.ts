@@ -3,10 +3,11 @@ import {
 	getSummaryWeather,
 } from '@/entities/MainWeatherInfo/SummaryWeatherInfo/model';
 import {setAppStatus} from '@/app/model';
+import {setToLocalStorage} from '@/shared/utils/setToLocalStorage';
 
 export type cityType = {
-	lat: number
-	lng: number
+	lat: string | string[]
+	lng: string | string[]
 	name: string
 }
 
@@ -33,6 +34,7 @@ export const updateCurrentCity = createAsyncThunk('weather/setCurrentCity',
 		dispatch(setAppStatus('loading'));
 		try {
 			dispatch(setCurrentCity({city: city}));
+			setToLocalStorage(city, 'current-city');
 			dispatch(getSummaryWeather(city));
 			dispatch(setAppStatus('success'));
 		} catch (e) {
