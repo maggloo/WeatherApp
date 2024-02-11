@@ -5,6 +5,7 @@ import {
 } from '@/shared/types';
 import {cityType, setCurrentCity} from '@/features/SearchCities/model';
 import {setAppStatus} from '@/app/model';
+import {getFromLocalStorage} from '@/shared/utils/getFromLocalStorage';
 
 type initialStateType = {
 	current: CurrentWeatherType & {pollution?: number},
@@ -37,6 +38,14 @@ export const weatherSlice = createSlice({
 	},
 });
 
+export const getStartCity = createAsyncThunk('weather/getCityFromLS', async (_, { dispatch }) => {
+	const city = getFromLocalStorage('current-city');
+	if (city) {
+		dispatch(getSummaryWeather(city));
+	} else {
+		dispatch(getSummaryWeather({lat: '53.9006', lng: '27.5590', name: 'Minsk, Belarus'}));
+	}
+});
 
 export const getSummaryWeather = createAsyncThunk('weather/getSummaryWeather',
 	async (location: cityType, { dispatch }) => {
