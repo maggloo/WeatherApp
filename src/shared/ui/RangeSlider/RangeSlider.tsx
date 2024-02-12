@@ -8,7 +8,7 @@ type SliderProps = {
     minStepsBetweenThumbs?: number
     value?: number[] | readonly number[]
 }
-export const Slider: FC<SliderProps> = ({ className,
+export const Slider: FC<SliderProps> = ({
 	min,
 	max,
 	value,
