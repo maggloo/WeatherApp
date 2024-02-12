@@ -6,6 +6,7 @@ import {
 import {cityType, setCurrentCity} from '@/features/SearchCities/model';
 import {setAppStatus} from '@/app/model';
 import {getFromLocalStorage} from '@/shared/utils/getFromLocalStorage';
+import {getGeocode} from 'use-places-autocomplete';
 
 type initialStateType = {
 	current: CurrentWeatherType & {pollution?: number},
@@ -38,12 +39,24 @@ export const weatherSlice = createSlice({
 	},
 });
 
-export const getStartCity = createAsyncThunk('weather/getCityFromLS', async (_, { dispatch }) => {
-	const city = getFromLocalStorage('current-city');
-	if (city) {
-		dispatch(getSummaryWeather(city));
-	} else {
-		dispatch(getSummaryWeather({lat: '53.9006', lng: '27.5590', name: 'Minsk, Belarus'}));
+export const getStartCity = createAsyncThunk('weather/getCityFromLS', async (cityInfo: Omit<cityType, 'name'> | undefined, {dispatch }) => {
+	try {
+		if (cityInfo) {
+			getGeocode({placeId: cityInfo.id as string}).then((results) => {
+				const address = results[0].formatted_address;
+				dispatch(getSummaryWeather({...cityInfo, name: address}));
+			}).catch(() => dispatch(setAppStatus('error')));
+		} else if (!cityInfo) {
+			const city = getFromLocalStorage('current-city');
+			if (city) {
+				dispatch(getSummaryWeather(city));
+			} else {
+				dispatch(getSummaryWeather({lat: '53.9006', lng: '27.5590', name: 'Minsk, Belarus'}));
+			}
+		}
+	} catch (e) {
+		console.log(e);
+		dispatch(setAppStatus('error'));
 	}
 });
 
