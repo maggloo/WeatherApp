@@ -7,14 +7,21 @@ import {Error} from '@/shared/ui/Error';
 import {getStartCity} from '@/entities/MainWeatherInfo/SummaryWeatherInfo/model';
 import MainWeather from '@/widgets/MainWeather';
 import WeatherWidgets from '@/widgets/WeatherWidgets';
+import {useRouter} from 'next/router';
 
 const Main = () => {
 	const status = useAppSelector(appStatusSelector);
 	const dispatch = useAppDispatch();
+	const {query, isReady} = useRouter();
 
-	useEffect(() => {
-		dispatch(getStartCity());
-	}, []);
+
+	useEffect(()=> {
+		if (isReady && query.lat && query.lon && query.id) {
+			dispatch(getStartCity({lat: query.lat, lng: query.lon, id: query.id as string}));
+		} else if (isReady) {
+			dispatch(getStartCity());
+		}
+	}, [isReady]);
 
 	return (
 		<div className="container mx-auto flex min-h-screen flex-col px-[1rem] antialiased md:px-[2rem]">
