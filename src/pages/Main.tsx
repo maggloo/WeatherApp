@@ -24,20 +24,22 @@ const Main = () => {
 	}, [isReady]);
 
 	return (
-		<div className="container mx-auto flex min-h-screen flex-col px-[1rem] antialiased md:px-[2rem]">
-			<div className="flex-grow">
-				<Nav />
-				{
-					status === 'loading' ? <Loading /> :
-						status === 'success' ?
-							<div className="flex flex-col gap-4 md:flex-row">
-								<MainWeather />
-								<WeatherWidgets />
-							</div>
-							: <Error />
-				}
+		<>
+			<div className="container mx-auto flex min-h-screen flex-col px-[1rem] antialiased md:px-[2rem]">
+				<div className="flex-grow">
+					<Nav />
+					{
+						status === 'loading' ? <Loading /> :
+							status === 'success' ?
+								<div className="flex flex-col gap-4 md:flex-row">
+									<MainWeather />
+									<WeatherWidgets />
+								</div>
+								: <Error />
+					}
+				</div>
 			</div>
-		</div>
+		</>
 	);
 };
 
