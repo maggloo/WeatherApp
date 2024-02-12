@@ -8,7 +8,8 @@ import {setToLocalStorage} from '@/shared/utils/setToLocalStorage';
 export type cityType = {
 	lat: string | string[]
 	lng: string | string[]
-	name: string
+	name: string,
+	id?: string
 }
 
 type initialStateType = {

@@ -35,8 +35,9 @@ export const usePlacesAutocompleteHook = () => {
         	// Get latitude and longitude via utility functions
         	getGeocode({ address: description }).then((results) => {
         		const { lat, lng } = getLatLng(results[0]);
+			const { place_id } = results[0];
         		dispatch(updateCurrentCity({lat: lat.toString(), lng: lng.toString(), name: description}));
-			router.push(`/?lat=${lat}&lon=${lng}`);
+			router.push(`/?lat=${lat}&lon=${lng}&id=${place_id}`);
         	});
 	};
 
