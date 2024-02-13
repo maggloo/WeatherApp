@@ -1,8 +1,6 @@
 
 # Weather
 
-![Screenshot of Weather app.](/weather-app/src/shared/assets/images/app.png)
-
 ## Overview 
 
 The application to display weather at requested city.
