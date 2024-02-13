@@ -6,7 +6,7 @@ import {ForecastForOneDayInfo} from '@/entities/MainWeatherInfo';
 type TenDayForecastPropsType = {
 	forecast: DailyWeatherType[];
 }
-const TenDayForecast: FC<TenDayForecastPropsType> = ({forecast}) => {
+const SevenDayForecast: FC<TenDayForecastPropsType> = ({forecast}) => {
 
 	const temperatures = forecast.map((item: DailyWeatherType) => item.temp);
 	const minTemperature = Math.min(...temperatures.map((temp) => temp.min));
@@ -30,4 +30,4 @@ const TenDayForecast: FC<TenDayForecastPropsType> = ({forecast}) => {
 	);
 };
 
-export default TenDayForecast;
+export default SevenDayForecast;
