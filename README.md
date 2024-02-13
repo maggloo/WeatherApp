@@ -1,6 +1,8 @@
 
 # Weather
 
+![weather](https://github.com/maggloo/WeatherApp/assets/87192791/cf843e32-4015-4c8a-9f78-653de1136d5c)
+
 ## Overview 
 
 The application to display weather at requested city.
