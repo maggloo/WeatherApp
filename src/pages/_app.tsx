@@ -5,7 +5,6 @@ import Main from '@/pages/Main';
 import Script from 'next/script';
 import React from 'react';
 
-
 export default function App() {
 	return (
 		<Provider store={store}>
