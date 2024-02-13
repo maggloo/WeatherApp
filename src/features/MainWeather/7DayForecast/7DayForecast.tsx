@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import ToolBox from '@/shared/ui/ToolBox/ToolBox';
 import {DailyWeatherType} from '@/shared/types';
-import {ForecastForOneDayInfo} from '@/entities/MainWeatherInfo/SevenDaysForecastInfo';
+import {ForecastForOneDayInfo} from '@/entities/MainWeatherInfo';
 
 type TenDayForecastPropsType = {
 	forecast: DailyWeatherType[];

@@ -6,4 +6,4 @@ export {CurrentTimeInfo} from '@/entities/MainWeatherInfo/SummaryWeatherInfo/ui/
 
 export {CurrentTemperatureInfo} from '@/entities/MainWeatherInfo/SummaryWeatherInfo/ui/CurrentTemperatureInfo';
 
-export {ForecastForOneDayInfo} from '@/entities/MainWeatherInfo/TenDaysForecastInfo';
+export {ForecastForOneDayInfo} from '@/entities/MainWeatherInfo/SevenDaysForecastInfo';
