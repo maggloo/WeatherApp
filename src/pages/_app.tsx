@@ -14,7 +14,7 @@ export default function App() {
 			</Theme>
 			<Script
 				strategy={'beforeInteractive'}
-				src={`https://maps.googleapis.com/maps/api/js?key=${process.env.GOOGLE_MAPS_API_KEY}&libraries=places&callback=Function.prototype`}
+				src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&libraries=places&callback=Function.prototype`}
 			/>
 		</Provider>
 	);
