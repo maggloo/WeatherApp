@@ -13,9 +13,9 @@ The application consists of two parts:
 
 ## Tech Stack
 
-**Next.js 14, TypeScript, Redux-Toolkit, Axios, Tailwind CSS, Google Maps Places API.
+Next.js 14, TypeScript, Redux-Toolkit, Axios, Tailwind CSS, Google Maps Places API.
 
-FSD architecture.**
+FSD architecture.
 
 ## Features
 
