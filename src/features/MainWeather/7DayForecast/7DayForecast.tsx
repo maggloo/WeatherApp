@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import ToolBox from '@/shared/ui/ToolBox/ToolBox';
 import {DailyWeatherType} from '@/shared/types';
-import {ForecastForOneDayInfo} from '@/entities/MainWeatherInfo';
+import {ForecastForOneDayInfo} from '@/entities/MainWeatherInfo/SevenDaysForecastInfo';
 
 type TenDayForecastPropsType = {
 	forecast: DailyWeatherType[];
@@ -13,7 +13,7 @@ const TenDayForecast: FC<TenDayForecastPropsType> = ({forecast}) => {
 	const maxTemperature = Math.max(...temperatures.map((temp) => temp.max));
 
 	return (
-		<ToolBox header={'10-Day Forecast'} className={'h-fit shrink-0'}>
+		<ToolBox header={'7-Day Forecast'} className={'h-fit shrink-0'}>
 			<div className="space-y-2 text-base font-normal md:mb-1">
 				{ forecast.map((item, i) => (
 					<ForecastForOneDayInfo
