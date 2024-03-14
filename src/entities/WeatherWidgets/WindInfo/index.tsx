@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import windRose from '@/shared/assets/images/compass.svg';
+import windRose from '/compass.svg';
 import {GiArrowhead} from 'react-icons/gi';
 import CardContent from '@/shared/ui/CardContent';
 import CardFooter from '@/shared/ui/CardFooter';
